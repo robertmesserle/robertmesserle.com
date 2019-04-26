@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Logo from '../Logo';
 import PhysicsToggle from '../PhysicsToggle';
+import {memo} from "react";
 
 const Hero = () => {
   return (
@@ -24,7 +25,7 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);
 
 const Container = styled.div`
   box-sizing: border-box;

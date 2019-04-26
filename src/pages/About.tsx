@@ -2,8 +2,7 @@ import * as React from 'react';
 
 import Page from '../Page';
 import Section from '../Section';
-
-const { memo } = React;
+import { memo } from 'react';
 
 const About = memo(() => {
   return (

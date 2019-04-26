@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import Page from '../Page';
 import Section from '../Section';
-
-const { memo } = React;
+import {memo} from "react";
 
 const StalkMe: React.FC = memo(() => {
   return (

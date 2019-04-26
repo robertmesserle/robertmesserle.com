@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-
-const { memo } = React;
+import { memo } from 'react';
 
 interface Props {
   centered?: boolean;
@@ -9,14 +8,16 @@ interface Props {
   title?: string;
 }
 
-const Section: React.FC<Props> = ({ centered = false, children, title }) => (
-  <Container data-align={centered && 'center'}>
-    {title != null && <h1>{title}</h1>}
-    {children}
-  </Container>
+const Section: React.FC<Props> = memo(
+  ({ centered = false, children, title }) => (
+    <Container data-align={centered && 'center'}>
+      {title != null && <h1>{title}</h1>}
+      {children}
+    </Container>
+  )
 );
 
-export default memo(Section);
+export default Section;
 
 const Container = styled.div`
   border: 1px solid var(--medium-blue);
@@ -37,8 +38,8 @@ const Container = styled.div`
   &:not(:last-child) {
     margin-bottom: 30px;
   }
-  
-  @media(max-width: 800px) {
+
+  @media (max-width: 800px) {
     border: none;
     background: var(--section-background-mobile);
     color: var(--light-blue);

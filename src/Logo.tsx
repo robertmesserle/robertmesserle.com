@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { memo } from 'react';
 
-const Logo: React.FC = () => {
+const Logo: React.FC = memo(() => {
   const types = ['bg', 'fg'];
 
   return (
@@ -22,7 +23,7 @@ const Logo: React.FC = () => {
       ))}
     </Container>
   );
-};
+});
 
 export default Logo;
 

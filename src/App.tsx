@@ -11,7 +11,8 @@ import Projects from './pages/Projects';
 import StalkMe from './pages/StalkMe';
 
 import Background from './Background';
-import Copyright from "./Copyright";
+import Copyright from './Copyright';
+import { memo } from 'react';
 
 const LAYERS = [
   {
@@ -48,7 +49,7 @@ const LAYERS = [
   },
 ];
 
-const App = () => {
+const App = memo(() => {
   return (
     <Fragment>
       {LAYERS.map((layer, index) => (
@@ -67,7 +68,7 @@ const App = () => {
       </Container>
     </Fragment>
   );
-};
+});
 
 export default App;
 

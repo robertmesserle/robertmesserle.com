@@ -1,9 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { memo } from 'react';
 
-const Copyright = () => {
+const Copyright = memo(() => {
   return <Wrapper>Copyright &copy; 2019 Robert Messerle.</Wrapper>;
-};
+});
 
 const Wrapper = styled.div`
   font-family: var(--body-font);

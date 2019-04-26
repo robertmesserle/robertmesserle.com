@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { memo } from 'react';
 
 interface Props {
   children: React.ReactNode;
@@ -7,7 +8,7 @@ interface Props {
   subheader: string;
 }
 
-const Page: React.FC<Props> = ({ children, header, subheader }) => {
+const Page: React.FC<Props> = memo(({ children, header, subheader }) => {
   return (
     <Container>
       <HeaderWrapper>
@@ -17,7 +18,7 @@ const Page: React.FC<Props> = ({ children, header, subheader }) => {
       {children}
     </Container>
   );
-};
+});
 
 export default Page;
 
