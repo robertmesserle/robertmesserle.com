@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:600');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+:root {
+  --hue: 190;
+  --dark-blue: hsl(var(--hue), 30%, 30%);
+  --medium-blue: hsl(var(--hue), 30%, 50%);
+  --light-blue: hsl(var(--hue), 30%, 60%);
+  --lighter-blue: hsl(var(--hue), 30%, 70%);
+  --background-blue: hsl(var(--hue), 80%, 3%);
+  --background-light-blue: hsl(var(--hue), 80%, 9%);
+  --background-lighter-blue: hsla(var(--hue), 50%, 45%, 0.2);
+  --section-background: hsl(var(--hue), 30%, 95%);
+  --section-background-mobile: hsla(var(--hue), 80%, 3%, 0.5);
+  --section-background-mobile-odd: hsla(var(--hue), 80%, 6%, 0.5);
+  --content-width: 600px;
+  --header-font: 'Open Sans Condensed', sans-serif;
+  --body-font: Raleway, sans-serif;
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate3d(0, 10px, 0);
+    animation-timing-function: ease-in;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: hsl(195, 100%, 2%) linear-gradient(
+      to bottom,
+      hsl(195, 100%, 18%),
+      hsl(200, 100%, 6%),
+      hsl(195, 100%, 2%)
+  ) no-repeat fixed;
+  color: var(--light-blue);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  height: 100%;
+}
