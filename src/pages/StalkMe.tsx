@@ -102,14 +102,16 @@ const ListWrapper = styled.div`
   }
 
   & > div {
-    --auto-grid-min-size: 100px;
-
     display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(var(--auto-grid-min-size), 1fr)
-    );
-    grid-gap: 10px;
+    grid-template-columns: repeat(4, 100px);
+    grid-column-gap: 10px;
+    grid-row-gap: 30px;
+    width: 430px;
+    margin: 0 auto;
+    @media (max-width: 470px) {
+      grid-template-columns: repeat(2, 100px);
+      width: 210px;
+    }
   }
 
   @media (max-width: 800px) {
@@ -143,8 +145,6 @@ const ListItemWrapper = styled.a`
   align-items: center;
   cursor: pointer;
   text-align: center;
-  margin: 0 10px 20px;
-  min-width: 100px;
 
   &:hover {
     transform: scale(1.2);
