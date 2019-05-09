@@ -6,7 +6,6 @@ import {
   togglePhysics,
 } from './helpers/hooks/useBackgroundAnimation';
 import { memo, useCallback, useState } from 'react';
-import isMobile from './helpers/isMobile';
 
 const PhysicsToggle: React.FC = memo(() => {
   const [physics, setPhysics] = useState(getCurrentPhysicsValue);
@@ -15,8 +14,6 @@ const PhysicsToggle: React.FC = memo(() => {
     togglePhysics();
     setPhysics(getCurrentPhysicsValue());
   }, []);
-
-  if (isMobile) return null;
 
   return (
     <Wrapper>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Page from '../Page';
 import Section from '../Section';
-import {memo} from "react";
+import { memo } from 'react';
 
 const StalkMe: React.FC = memo(() => {
   return (
@@ -102,9 +102,14 @@ const ListWrapper = styled.div`
   }
 
   & > div {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    --auto-grid-min-size: 100px;
+
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--auto-grid-min-size), 1fr)
+    );
+    grid-gap: 10px;
   }
 
   @media (max-width: 800px) {
@@ -135,7 +140,6 @@ const ListItemWrapper = styled.a`
   color: var(--dark-blue);
   transition: 175ms ease-out;
   text-decoration: none;
-  display: flex;
   align-items: center;
   cursor: pointer;
   text-align: center;

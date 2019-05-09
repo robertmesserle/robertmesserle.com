@@ -1,6 +1,5 @@
 import random from '../random';
 import getColor from '../getColor';
-import isMobile from '../isMobile';
 import { useEffect, useState } from 'react';
 
 export interface BackgroundConfig {
@@ -35,8 +34,8 @@ export const getCurrentPhysicsValue = () => physics;
 const useBackgroundAnimation = (
   config: BackgroundConfig
 ): HTMLCanvasElement => {
-  let { width, height } = document.body.getBoundingClientRect();
   const [renderer] = useState(() => {
+    const { width, height } = document.body.getBoundingClientRect();
     const dots = _getDots(config);
     const { PIXI } = window as any;
     const renderer = PIXI.autoDetectRenderer(width, height, {
@@ -96,14 +95,12 @@ const useBackgroundAnimation = (
 
   useEffect(() => {
     const handler = () => {
-      const rect = document.body.getBoundingClientRect();
-      width = rect.width;
-      height = rect.height;
+      const { width, height } = document.body.getBoundingClientRect();
       renderer.resize(width, height);
     };
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
-  }, []);
+  }, [renderer]);
 
   return renderer.view as HTMLCanvasElement;
 };
@@ -166,7 +163,7 @@ const _animate = (callback: (diff: number) => void): void => {
     const diff = Math.min(new Date().valueOf() - lastFrame, 42);
     if (checkFramerate()) return;
     callback(diff);
-    if (!isMobile) requestAnimationFrame(step);
+    requestAnimationFrame(step);
   };
 
   step();

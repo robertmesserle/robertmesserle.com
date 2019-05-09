@@ -15,7 +15,7 @@ const Background: React.FC<Props> = memo(({ config }) => {
 
   useLayoutEffect(() => {
     ref.current && ref.current.appendChild(canvas);
-  }, [canvas, ref.current]);
+  }, [canvas]);
 
   return <Container ref={ref as any} />;
 });
