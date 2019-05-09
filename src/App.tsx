@@ -1,18 +1,15 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const { Fragment } = React;
-
 import About from './pages/About';
 import CodePen from './pages/CodePen';
-import Contact from './pages/Contact';
 import Hero from './pages/Hero';
 import Projects from './pages/Projects';
 import StalkMe from './pages/StalkMe';
 
 import Background from './Background';
 import Copyright from './Copyright';
-import { memo } from 'react';
+import { memo, Fragment } from 'react';
 
 const LAYERS = [
   {
@@ -61,9 +58,6 @@ const App = memo(() => {
         <Projects />
         <CodePen />
         <StalkMe />
-        <Hidden>
-          <Contact />
-        </Hidden>
         <Copyright />
       </Container>
     </Fragment>
@@ -71,10 +65,6 @@ const App = memo(() => {
 });
 
 export default App;
-
-const Hidden = styled.div`
-  display: none;
-`;
 
 const Container = styled.div`
   height: 100%;
