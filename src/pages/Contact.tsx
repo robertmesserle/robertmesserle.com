@@ -81,8 +81,8 @@ const Input = styled.input`
   &::-webkit-input-placeholder {
     color: var(--light-blue);
   }
-  
-  @media(max-width: 800px) {
+
+  @media (max-width: 800px) {
     background: var(--background-lighter-blue);
     color: var(--lighter-blue);
   }
@@ -105,8 +105,8 @@ const TextArea = styled.textarea`
   resize: none;
   overflow: hidden;
   min-height: 80px;
-  
-  @media(max-width: 800px) {
+
+  @media (max-width: 800px) {
     background: var(--background-lighter-blue);
     color: var(--lighter-blue);
   }

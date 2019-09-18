@@ -88,10 +88,9 @@ const ListWrapper = styled.div`
   text-transform: uppercase;
   color: var(--dark-blue);
   text-align: center;
-  margin-bottom: -20px;
 
   & + & {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 
   & > h1 {
