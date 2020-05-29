@@ -3,4 +3,4 @@ const random = (min: number, max: number): number => {
   return Math.round(rand + min);
 };
 
-export default random
+export default random;

@@ -1,6 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { memo } from 'react';
 
 interface Props {
   centered?: boolean;
@@ -8,14 +7,12 @@ interface Props {
   title?: string;
 }
 
-const Section: React.FC<Props> = memo(
-  ({ centered = false, children, title }) => (
-    <Container data-align={centered && 'center'}>
-      {title != null && <h1>{title}</h1>}
-      {children}
-    </Container>
-  )
-);
+const Section: React.FC<Props> = React.memo(({ centered = false, children, title }) => (
+  <Container data-align={centered && 'center'}>
+    {title != null && <h1>{title}</h1>}
+    {children}
+  </Container>
+));
 
 export default Section;
 

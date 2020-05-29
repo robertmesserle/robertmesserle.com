@@ -1,22 +1,17 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { memo } from 'react';
 
-const Logo: React.FC = memo(() => {
+const Logo: React.FC = React.memo(() => {
   const types = ['bg', 'fg'];
 
   return (
     <Container>
       {types.map((type, index) => (
-        <Svg
-          key={index}
-          data-type={type}
-          viewBox="-8 -8 156 116"
-          preserveAspectRatio="none">
-          <Path d="M 20 15 l 0 65  c 0 20 5 20 40 5 c -20 5 -20 5 -20 0 l 0 -65 c 0 -20 -5 -20 -40 -5 c 20 -5 20 -5 20 0" />
-          <Path d="M 60 15 l 0 10 c 0 20 0 20 -20 30 c 20 -5 20 -5 20 0 l 0 25  c 0 20 5 20 40 5 c -20 5 -20 5 -20 0 l 0 -25 c 0 -20 -5 -20 -40 -5 c 20 -5 40 -15 40 -30 l 0 -5 c 0 -20 -5 -20 -40 -5 c 20 -5 20 -5 20 0" />
+        <Svg key={index} data-type={type} viewBox='-8 -8 156 116' preserveAspectRatio='none'>
+          <Path d='M 20 15 l 0 65  c 0 20 5 20 40 5 c -20 5 -20 5 -20 0 l 0 -65 c 0 -20 -5 -20 -40 -5 c 20 -5 20 -5 20 0' />
+          <Path d='M 60 15 l 0 10 c 0 20 0 20 -20 30 c 20 -5 20 -5 20 0 l 0 25  c 0 20 5 20 40 5 c -20 5 -20 5 -20 0 l 0 -25 c 0 -20 -5 -20 -40 -5 c 20 -5 40 -15 40 -30 l 0 -5 c 0 -20 -5 -20 -40 -5 c 20 -5 20 -5 20 0' />
           <Path
-            d="M 100 15 l 0 65  c 0 20 5 20 40 5 c -20 5 -20 5 -20 0 l 0 -65 c 0 -20 -5 -20 -40 -5 c 20 -5 20 -5 20 0"
+            d='M 100 15 l 0 65  c 0 20 5 20 40 5 c -20 5 -20 5 -20 0 l 0 -65 c 0 -20 -5 -20 -40 -5 c 20 -5 20 -5 20 0'
             data-type={type}
           />
         </Svg>

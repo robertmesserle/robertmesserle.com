@@ -1,19 +1,16 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import useBackgroundAnimation, {
-  BackgroundConfig,
-} from './helpers/hooks/useBackgroundAnimation';
-import { memo, useLayoutEffect, useRef } from 'react';
+import useBackgroundAnimation, { BackgroundConfig } from 'hooks/useBackgroundAnimation';
 
 interface Props {
   config: BackgroundConfig;
 }
 
-const Background: React.FC<Props> = memo(({ config }) => {
+const Background: React.FC<Props> = React.memo(({ config }) => {
   const canvas = useBackgroundAnimation(config);
-  const ref = useRef<HTMLDivElement>();
+  const ref = React.useRef<HTMLDivElement>();
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     ref.current && ref.current.appendChild(canvas);
   }, [canvas]);
 

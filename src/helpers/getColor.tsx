@@ -8,11 +8,7 @@ const hue2rgb = (p: number, q: number, tArg: number): number => {
   return p;
 };
 
-const hslToRgb = (
-  h: number,
-  s: number,
-  l: number
-): [number, number, number] => {
+const hslToRgb = (h: number, s: number, l: number): [number, number, number] => {
   let r, g, b;
   if (s === 0) {
     r = g = b = l; // achromatic
@@ -26,20 +22,12 @@ const hslToRgb = (
   return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 };
 
-const getColor = (
-  hue: number,
-  saturation: number,
-  lightness: number,
-  opacity: number
-) => {
+const getColor = (hue: number, saturation: number, lightness: number, opacity: number) => {
   const [red, green, blue] = hslToRgb(hue, saturation, lightness);
   return {
-    color: parseInt(
-      red.toString(16) + green.toString(16) + blue.toString(16),
-      16
-    ),
+    color: parseInt(red.toString(16) + green.toString(16) + blue.toString(16), 16),
     opacity: opacity,
   };
 };
 
-export default getColor
+export default getColor;

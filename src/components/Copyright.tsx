@@ -1,8 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { memo } from 'react';
 
-const Copyright = memo(() => {
+const Copyright = React.memo(() => {
   return <Wrapper>Copyright &copy; 2019 Robert Messerle.</Wrapper>;
 });
 

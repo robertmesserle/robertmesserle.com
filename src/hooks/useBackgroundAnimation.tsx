@@ -1,6 +1,6 @@
-import random from '../random';
-import getColor from '../getColor';
-import { useEffect, useState } from 'react';
+import React from 'react';
+import random from 'helpers/random';
+import getColor from 'helpers/getColor';
 
 export interface BackgroundConfig {
   blur: number;
@@ -31,10 +31,8 @@ export const togglePhysics = () => {
 
 export const getCurrentPhysicsValue = () => physics;
 
-const useBackgroundAnimation = (
-  config: BackgroundConfig
-): HTMLCanvasElement => {
-  const [renderer] = useState(() => {
+const useBackgroundAnimation = (config: BackgroundConfig): HTMLCanvasElement => {
+  const [renderer] = React.useState(() => {
     const { width, height } = document.body.getBoundingClientRect();
     const dots = _getDots(config);
     const { PIXI } = window as any;
@@ -45,21 +43,18 @@ const useBackgroundAnimation = (
     });
     const stage = new PIXI.Container();
     stage.filters = [new PIXI.filters.BlurFilter(config.blur)];
-    const graphics = dots.map(dot => {
+    const graphics = dots.map((dot) => {
       const radius = dot.size / 2;
       const graphics = new PIXI.Graphics();
       graphics.position.set(dot.left, dot.top);
-      graphics
-        .beginFill(dot.color.color, dot.color.opacity)
-        .drawCircle(0, 0, radius)
-        .endFill();
+      graphics.beginFill(dot.color.color, dot.color.opacity).drawCircle(0, 0, radius).endFill();
       stage.addChild(graphics);
       return graphics;
     });
     renderer.render(stage);
 
     if (config.animate) {
-      _animate(diff => {
+      _animate((diff) => {
         dots.forEach((dot, index) => {
           //-- update dot positions
           dot.left -= dot.xPace;
@@ -78,10 +73,8 @@ const useBackgroundAnimation = (
           } else {
             dot.speed = 0;
             dot.top += dot.yPace;
-            if (dot.top > height + dot.size && dot.xPace > 0)
-              dot.top = -dot.size;
-            else if (dot.top < -dot.size && dot.yPace < 0)
-              dot.top = height + dot.size;
+            if (dot.top > height + dot.size && dot.xPace > 0) dot.top = -dot.size;
+            else if (dot.top < -dot.size && dot.yPace < 0) dot.top = height + dot.size;
           }
           //-- update graphics per new dot settings
           graphics[index].setTransform(dot.left, dot.top);
@@ -93,7 +86,7 @@ const useBackgroundAnimation = (
     return renderer;
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handler = () => {
       const { width, height } = document.body.getBoundingClientRect();
       renderer.resize(width, height);
@@ -109,12 +102,7 @@ export default useBackgroundAnimation;
 
 // Utility methods
 
-const _getDot = (
-  config: BackgroundConfig,
-  width: number,
-  height: number,
-  percent: number
-): Dot => {
+const _getDot = (config: BackgroundConfig, width: number, height: number, percent: number): Dot => {
   const size = random(config.minSize * percent, config.maxSize * percent);
   const left = random(-size, width + size);
   const top = random(-size, height + size);

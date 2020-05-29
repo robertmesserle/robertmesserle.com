@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import About from './pages/About';
@@ -9,7 +9,6 @@ import StalkMe from './pages/StalkMe';
 
 import Background from './Background';
 import Copyright from './Copyright';
-import { memo, Fragment } from 'react';
 
 const LAYERS = [
   {
@@ -46,9 +45,9 @@ const LAYERS = [
   },
 ];
 
-const App = memo(() => {
+const App = React.memo(() => {
   return (
-    <Fragment>
+    <>
       {LAYERS.map((layer, index) => (
         <Background config={layer} key={index} />
       ))}
@@ -60,7 +59,7 @@ const App = memo(() => {
         <StalkMe />
         <Copyright />
       </Container>
-    </Fragment>
+    </>
   );
 });
 

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Page from 'components/Page';
 import Section from 'components/Section';
 
-const StalkMe: React.FC = React.memo(() => {
+function StalkMe() {
   return (
     <Page header='stalk me' subheader='on social media'>
       <Section centered>
@@ -38,9 +38,9 @@ const StalkMe: React.FC = React.memo(() => {
       </ContentWrapper>
     </Page>
   );
-});
+}
 
-export default StalkMe;
+export default React.memo(StalkMe);
 
 const ContentWrapper = styled.div`
   overflow: hidden;

@@ -1,16 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import cn from 'classnames';
-import {
-  getCurrentPhysicsValue,
-  togglePhysics,
-} from './helpers/hooks/useBackgroundAnimation';
-import { memo, useCallback, useState } from 'react';
+import { getCurrentPhysicsValue, togglePhysics } from 'hooks/useBackgroundAnimation';
 
-const PhysicsToggle: React.FC = memo(() => {
-  const [physics, setPhysics] = useState(getCurrentPhysicsValue);
+const PhysicsToggle: React.FC = React.memo(() => {
+  const [physics, setPhysics] = React.useState(getCurrentPhysicsValue);
 
-  const toggle = useCallback(() => {
+  const toggle = React.useCallback(() => {
     togglePhysics();
     setPhysics(getCurrentPhysicsValue());
   }, []);
