@@ -1,0 +1,14 @@
+$gap: 15px;
+
+.root {
+  display: flex;
+  flex-direction: row;
+
+  & > * {
+    width: calc(50% - ($gap / 2));
+  }
+
+  & > :first-child {
+    margin-right: $gap;
+  }
+}
