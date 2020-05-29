@@ -1,51 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
-
-import Page from 'components/Page';
-import Section from 'components/Section';
-import SplitSection from 'components/SplitSection';
-
-import useAutogrow from 'hooks/useAutogrow';
-
-const Contact: React.FC = () => (
-  <Page header='contact' subheader='Robert Messerle'>
-    <Section>
-      <SplitSection>
-        <Field label='Your name' placeholder='John Doe' type='text' />
-        <Field label='Your email' placeholder='john.doe@domain.com' type='email' />
-      </SplitSection>
-      <Field label='Your message' type='textarea' />
-      <SplitSection>
-        <InputButton type='reset' value='Clear' />
-        <InputButton type='submit' value='Send' />
-      </SplitSection>
-    </Section>
-  </Page>
-);
-
-export default Contact;
-
-interface TextInputProps {
-  label: string;
-  placeholder?: string;
-  type: 'text' | 'textarea' | 'email';
-}
-const Field: React.FC<TextInputProps> = ({ label, placeholder, type }) => {
-  const autogrowRef = useAutogrow();
-
-  return (
-    <Label>
-      <span>{label}</span>
-      {type === 'textarea' ? (
-        <TextArea ref={autogrowRef} />
-      ) : (
-        <Input type={type} placeholder={placeholder} />
-      )}
-    </Label>
-  );
-};
-
-const Label = styled.label`
+.label {
   display: block;
 
   & > span {
@@ -55,9 +8,9 @@ const Label = styled.label`
     font-weight: normal;
     color: var(--dark-blue);
   }
-`;
+}
 
-const Input = styled.input`
+.input {
   display: block;
   border: 1px solid var(--medium-blue);
   width: 100%;
@@ -80,9 +33,9 @@ const Input = styled.input`
     background: var(--background-lighter-blue);
     color: var(--lighter-blue);
   }
-`;
+}
 
-const TextArea = styled.textarea`
+.textArea {
   display: block;
   border: 1px solid var(--medium-blue);
   width: 100%;
@@ -104,9 +57,9 @@ const TextArea = styled.textarea`
     background: var(--background-lighter-blue);
     color: var(--lighter-blue);
   }
-`;
+}
 
-const InputButton = styled.input`
+.inputButton {
   background: transparent;
   border: 1px solid var(--medium-blue);
   color: var(--medium-blue);
@@ -126,4 +79,4 @@ const InputButton = styled.input`
     background: var(--medium-blue);
     color: white;
   }
-`;
+}

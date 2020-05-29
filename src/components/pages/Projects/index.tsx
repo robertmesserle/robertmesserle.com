@@ -1,9 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import Page from 'components/Page';
 import Section from 'components/Section';
 import SplitSection from 'components/SplitSection';
+
+import css from './index.module.scss';
 
 const Projects: React.FC = () => (
   <Page header='projects' subheader="I've worked on">
@@ -31,7 +32,7 @@ export default Projects;
 
 function ProjectLinks({ website, github }: { website: string; github: string }) {
   return (
-    <Nav>
+    <nav className={css.nav}>
       <SplitSection>
         <a href={website} target='_blank' rel='noopener noreferrer'>
           <i className='fa fa-external-link' />
@@ -42,55 +43,6 @@ function ProjectLinks({ website, github }: { website: string; github: string }) 
           <span>Github</span>
         </a>
       </SplitSection>
-    </Nav>
+    </nav>
   );
 }
-
-const Nav = styled.nav`
-  a {
-    text-decoration: none;
-    color: var(--medium-blue);
-    border: 1px solid var(--medium-blue);
-    height: 40px;
-    transition: 0.25s;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-      color: white;
-      &:before {
-        transform: none;
-      }
-    }
-
-    i.fa {
-      margin-right: 10px;
-      position: relative;
-      z-index: 5;
-      font-size: 1.5em;
-      vertical-align: center;
-    }
-
-    span {
-      position: relative;
-      z-index: 5;
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: var(--medium-blue);
-      transform: rotate(90deg);
-      transform-origin: -50px -10px;
-      transition: 0.25s;
-      z-index: 0;
-    }
-  }
-`;
