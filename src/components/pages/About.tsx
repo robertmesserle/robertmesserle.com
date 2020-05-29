@@ -1,9 +1,8 @@
 import React from 'react';
-
 import Page from 'components/Page';
 import Section from 'components/Section';
 
-const About = React.memo(() => {
+function About() {
   return (
     <Page header='about' subheader='Me, Myself, and I'>
       <Section title='Who are you?'>
@@ -26,6 +25,6 @@ const About = React.memo(() => {
       </Section>
     </Page>
   );
-});
+}
 
-export default About;
+export default React.memo(About);

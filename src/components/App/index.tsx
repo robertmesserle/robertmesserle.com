@@ -1,14 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-
-import About from './pages/About';
-import CodePen from './pages/CodePen';
-import Hero from './pages/Hero';
-import Projects from './pages/Projects';
-import StalkMe from './pages/StalkMe';
-
-import Background from './Background';
-import Copyright from './Copyright';
+import css from './index.module.scss';
+import Background from 'components/Background';
+import Hero from 'components/pages/Hero';
+import About from 'components/pages/About';
 
 const LAYERS = [
   {
@@ -45,28 +39,18 @@ const LAYERS = [
   },
 ];
 
-const App = React.memo(() => {
+function App() {
   return (
     <>
       {LAYERS.map((layer, index) => (
         <Background config={layer} key={index} />
       ))}
-      <Container>
+      <div className={css.root}>
         <Hero />
         <About />
-        <Projects />
-        <CodePen />
-        <StalkMe />
-        <Copyright />
-      </Container>
+      </div>
     </>
   );
-});
+}
 
-export default App;
-
-const Container = styled.div`
-  height: 100%;
-  position: relative;
-  z-index: 1;
-`;
+export default React.memo(App);
