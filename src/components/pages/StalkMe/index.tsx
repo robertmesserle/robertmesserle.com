@@ -43,27 +43,20 @@ function StalkMe() {
 
 export default StalkMe;
 
-interface ListProps {
-  children: React.ReactNode;
-  title: string;
+function List({ children, title }: { children: React.ReactNode; title: string }) {
+  return (
+    <div className={css.listWrapper}>
+      <h1>{title}</h1>
+      <div>{children}</div>
+    </div>
+  );
 }
 
-const List = ({ children, title }: ListProps) => (
-  <div className={css.listWrapper}>
-    <h1>{title}</h1>
-    <div>{children}</div>
-  </div>
-);
-
-interface ListItemProps {
-  href: string;
-  icon: string;
-  title: string;
+function ListItem({ href, icon, title }: { href: string; icon: string; title: string }) {
+  return (
+    <a className={css.listItemWrapper} href={href} target='_blank' rel='noopener noreferrer'>
+      <i className={`fa fa-${icon}`} />
+      <span>{title}</span>
+    </a>
+  );
 }
-
-const ListItem = ({ href, icon, title }: ListItemProps) => (
-  <a className={css.listItemWrapper} href={href} target='_blank' rel='noopener noreferrer'>
-    <i className={`fa fa-${icon}`} />
-    <span>{title}</span>
-  </a>
-);

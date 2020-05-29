@@ -5,7 +5,7 @@ import Hero from 'components/pages/Hero';
 import About from 'components/pages/About';
 import Projects from 'components/pages/Projects';
 import CodePen from 'components/pages/CodePen';
-import StalkMe from 'pages/StalkMe';
+import StalkMe from 'components/pages/StalkMe';
 import Copyright from 'components/Copyright';
 
 const LAYERS = [
