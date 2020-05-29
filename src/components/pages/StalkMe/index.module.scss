@@ -1,5 +1,4 @@
 .contentWrapper {
-  overflow: hidden;
   margin-top: 50px;
 }
 
@@ -66,7 +65,6 @@
     line-height: 75px;
     text-align: center;
     transition: ease-in 175ms;
-    transition-delay: 90ms;
     font-size: 34px;
     border-radius: 50%;
     border: 1px solid var(--light-blue);
