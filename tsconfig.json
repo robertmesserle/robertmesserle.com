@@ -1,29 +1,21 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "jsx": "preserve",
-    "lib": [
-      "es2015",
-      "dom"
-    ],
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "strict": true,
-    "target": "es6",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "jsx": "react",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
-  "include": [
-    "src/**/*"
-  ],
-  "types": [
-    "./node_modules/@types"
-  ]
+  "include": ["src"]
 }
