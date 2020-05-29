@@ -11,10 +11,10 @@ interface Props {
 function Page({ children, header, subheader }: Props) {
   return (
     <div className={css.root}>
-      <div className={css.header}>
+      <header className={css.header}>
         <h1>{header}</h1>
         <h2>{subheader}</h2>
-      </div>
+      </header>
       {children}
     </div>
   );
