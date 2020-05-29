@@ -3,6 +3,10 @@ import css from './index.module.scss';
 import Background from 'components/Background';
 import Hero from 'components/pages/Hero';
 import About from 'components/pages/About';
+import Projects from 'components/pages/Projects';
+import CodePen from 'components/pages/CodePen';
+import StalkMe from 'pages/StalkMe';
+import Copyright from 'components/Copyright';
 
 const LAYERS = [
   {
@@ -48,6 +52,10 @@ function App() {
       <div className={css.root}>
         <Hero />
         <About />
+        <Projects />
+        <CodePen />
+        <StalkMe />
+        <Copyright />
       </div>
     </>
   );
