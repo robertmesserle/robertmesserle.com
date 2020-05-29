@@ -2,14 +2,14 @@ import React from 'react';
 
 import Page from 'components/Page';
 
-import BoxTransitionImage from './img/codepen/box-transition.png';
-import CalendarImage from './img/codepen/calendar.png';
-import CardsImage from './img/codepen/css-cards.png';
-import ContrastImage from './img/codepen/contrast-color.png';
-import FixedContentImage from './img/codepen/fixed-reveal.png';
-import TextImage from './img/codepen/css-text.png';
-import SocialImage from './img/codepen/social-icons.png';
-import SpiralImage from './img/codepen/spiral.png';
+import BoxTransitionImage from './img/box-transition.png';
+import CalendarImage from './img/calendar.png';
+import CardsImage from './img/css-cards.png';
+import ContrastImage from './img/contrast-color.png';
+import FixedContentImage from './img/fixed-reveal.png';
+import TextImage from './img/css-text.png';
+import SocialImage from './img/social-icons.png';
+import SpiralImage from './img/spiral.png';
 
 import css from './index.module.scss';
 
