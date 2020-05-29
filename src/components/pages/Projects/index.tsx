@@ -36,11 +36,11 @@ function ProjectLinks({ website, github }: { website: string; github: string }) 
   return (
     <nav className={css.nav}>
       <SplitSection>
-        <a href={website} target='_blank' rel='noopener noreferrer'>
+        <a className={css.link} href={website} target='_blank' rel='noopener noreferrer'>
           <i className='fa fa-external-link' />
           <span>Website</span>
         </a>
-        <a href={github} target='_blank' rel='noopener noreferrer'>
+        <a className={css.link} href={github} target='_blank' rel='noopener noreferrer'>
           <i className='fa fa-github' />
           <span>Github</span>
         </a>

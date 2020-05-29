@@ -13,14 +13,14 @@
     margin-top: 50px;
   }
 
-  & > h1 {
+  > h1 {
     font-family: var(--body-font);
     font-weight: 700;
     font-size: 18px;
     margin: 0 0 30px;
   }
 
-  & > div {
+  > div {
     display: grid;
     grid-template-columns: repeat(4, 100px);
     grid-column-gap: 10px;
@@ -54,13 +54,13 @@
 
   &:hover {
     transform: scale(1.2);
-    i.fa {
+    :global(i.fa) {
       background-color: var(--background-lighter-blue);
       box-shadow: 0 0 5px var(--light-blue);
     }
   }
 
-  i.fa {
+  > :global(i.fa) {
     width: 75px;
     height: 75px;
     line-height: 75px;
@@ -73,7 +73,7 @@
     margin-bottom: 5px;
   }
 
-  span {
+  > span {
     font-family: var(--header-font);
     font-size: 14px;
     font-weight: 300;
