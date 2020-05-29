@@ -25,4 +25,4 @@ function PhysicsToggle() {
   );
 }
 
-export default React.memo(PhysicsToggle);
+export default PhysicsToggle;

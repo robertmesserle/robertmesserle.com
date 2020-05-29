@@ -5,7 +5,7 @@ import Page from 'components/Page';
 import Section from 'components/Section';
 import SplitSection from 'components/SplitSection';
 
-const Projects: React.FC = React.memo(() => (
+const Projects: React.FC = () => (
   <Page header='projects' subheader="I've worked on">
     <Section title='Angular'>
       <p>
@@ -25,28 +25,26 @@ const Projects: React.FC = React.memo(() => (
       />
     </Section>
   </Page>
-));
+);
 
 export default Projects;
 
-const ProjectLinks: React.FC<{ website: string; github: string }> = React.memo(
-  ({ website, github }) => {
-    return (
-      <Nav>
-        <SplitSection>
-          <a href={website} target='_blank' rel='noopener noreferrer'>
-            <i className='fa fa-external-link' />
-            <span>Website</span>
-          </a>
-          <a href={github} target='_blank' rel='noopener noreferrer'>
-            <i className='fa fa-github' />
-            <span>Github</span>
-          </a>
-        </SplitSection>
-      </Nav>
-    );
-  },
-);
+function ProjectLinks({ website, github }: { website: string; github: string }) {
+  return (
+    <Nav>
+      <SplitSection>
+        <a href={website} target='_blank' rel='noopener noreferrer'>
+          <i className='fa fa-external-link' />
+          <span>Website</span>
+        </a>
+        <a href={github} target='_blank' rel='noopener noreferrer'>
+          <i className='fa fa-github' />
+          <span>Github</span>
+        </a>
+      </SplitSection>
+    </Nav>
+  );
+}
 
 const Nav = styled.nav`
   a {

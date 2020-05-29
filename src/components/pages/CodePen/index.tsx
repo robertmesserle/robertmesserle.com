@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import Page from 'components/Page';
 
@@ -12,7 +11,9 @@ import TextImage from './img/codepen/css-text.png';
 import SocialImage from './img/codepen/social-icons.png';
 import SpiralImage from './img/codepen/spiral.png';
 
-const CodePen: React.FC = React.memo(() => {
+import css from './index.module.scss';
+
+function CodePen() {
   return (
     <Page header='codepen' subheader='tinkerings'>
       <Pen
@@ -87,132 +88,30 @@ const CodePen: React.FC = React.memo(() => {
       </Pen>
     </Page>
   );
-});
+}
 
 export default CodePen;
 
-interface PenProps {
+interface PenProps {}
+
+function Pen({
+  children,
+  href,
+  img,
+  title,
+}: {
   children: React.ReactNode;
   href: string;
   title: string;
   img: string;
-}
-
-const Pen: React.FC<PenProps> = React.memo(({ children, href, img, title }) => {
+}) {
   return (
-    <Link href={href} target='_blank'>
-      <Image src={img} />
-      <Content>
+    <a className={css.link} href={href} target='_blank' rel='noopener noreferrer'>
+      <img className={css.image} src={img} alt={title} />
+      <div className={css.content}>
         <h1>{title}</h1>
         {children}
-      </Content>
-    </Link>
+      </div>
+    </a>
   );
-});
-
-const Link = styled.a`
-  border: 1px solid var(--medium-blue);
-  color: var(--dark-blue);
-  font: 600 12px/2em var(--body-font);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 50px;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: var(--medium-blue);
-    transform: rotate(90deg);
-    transform-origin: -20% -20%;
-    transition: 0.25s;
-    z-index: 5;
-    opacity: 0.8;
-  }
-
-  &:after {
-    content: '\f14c';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    opacity: 0;
-    color: white;
-    font-size: 80px;
-    font-family: FontAwesome;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    pointer-events: none;
-    transition: 0.65s;
-    z-index: 10;
-    transform: translate(-50%, -50%);
-  }
-
-  &:hover {
-    &:before {
-      transform: none;
-    }
-    &:after {
-      opacity: 1;
-    }
-  }
-
-  &:nth-of-type(odd) {
-    background: var(--section-background);
-  }
-
-  &:not(:last-child) {
-    margin-bottom: 30px;
-  }
-
-  @media (max-width: 800px) {
-    margin-bottom: 0;
-    border: none;
-    background: var(--section-background-mobile);
-    color: var(--lighter-blue);
-    &:nth-of-type(odd) {
-      background: var(--section-background-mobile-odd);
-    }
-    &:not(:last-child) {
-      margin-bottom: 0;
-    }
-  }
-`;
-
-const Image = styled.img`
-  --size: 160px;
-
-  display: block;
-  width: var(--size);
-  height: var(--size);
-  border: 1px solid var(--medium-blue);
-  margin-right: 30px;
-  flex-shrink: 0;
-  flex-grow: 0;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
-`;
-
-const Content = styled.div`
-  h1 {
-    font-size: 1.5em;
-    margin-top: 0;
-  }
-
-  p {
-    margin-bottom: 0;
-    &:not(:last-child) {
-      margin-bottom: 30px;
-    }
-    b {
-      border-bottom: 1px solid var(--light-blue);
-    }
-  }
-`;
+}

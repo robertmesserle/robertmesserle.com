@@ -20,4 +20,4 @@ function Page({ children, header, subheader }: Props) {
   );
 }
 
-export default React.memo(Page);
+export default Page;

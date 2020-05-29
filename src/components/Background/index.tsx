@@ -13,4 +13,4 @@ function Background({ config }: Props) {
   return <div className={css.root} ref={ref} />;
 }
 
-export default React.memo(Background);
+export default Background;

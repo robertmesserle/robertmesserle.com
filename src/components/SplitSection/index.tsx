@@ -10,4 +10,4 @@ function SplitSection({ children }: Props) {
   return <div className={css.root}>{children}</div>;
 }
 
-export default React.memo(SplitSection);
+export default SplitSection;

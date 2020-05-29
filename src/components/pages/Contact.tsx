@@ -7,7 +7,7 @@ import SplitSection from 'components/SplitSection';
 
 import useAutogrow from 'hooks/useAutogrow';
 
-const Contact: React.FC = React.memo(() => (
+const Contact: React.FC = () => (
   <Page header='contact' subheader='Robert Messerle'>
     <Section>
       <SplitSection>
@@ -21,7 +21,7 @@ const Contact: React.FC = React.memo(() => (
       </SplitSection>
     </Section>
   </Page>
-));
+);
 
 export default Contact;
 
@@ -30,7 +30,7 @@ interface TextInputProps {
   placeholder?: string;
   type: 'text' | 'textarea' | 'email';
 }
-const Field: React.FC<TextInputProps> = React.memo(({ label, placeholder, type }) => {
+const Field: React.FC<TextInputProps> = ({ label, placeholder, type }) => {
   const autogrowRef = useAutogrow();
 
   return (
@@ -43,7 +43,7 @@ const Field: React.FC<TextInputProps> = React.memo(({ label, placeholder, type }
       )}
     </Label>
   );
-});
+};
 
 const Label = styled.label`
   display: block;

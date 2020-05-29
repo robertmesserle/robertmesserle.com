@@ -40,7 +40,7 @@ function StalkMe() {
   );
 }
 
-export default React.memo(StalkMe);
+export default StalkMe;
 
 const ContentWrapper = styled.div`
   overflow: hidden;
@@ -52,12 +52,12 @@ interface ListProps {
   title: string;
 }
 
-const List = React.memo(({ children, title }: ListProps) => (
+const List = ({ children, title }: ListProps) => (
   <ListWrapper>
     <h1>{title}</h1>
     <div>{children}</div>
   </ListWrapper>
-));
+);
 
 const ListWrapper = styled.div`
   font-family: var(--body-font);
@@ -102,12 +102,12 @@ interface ListItemProps {
   title: string;
 }
 
-const ListItem = React.memo(({ href, icon, title }: ListItemProps) => (
+const ListItem = ({ href, icon, title }: ListItemProps) => (
   <ListItemWrapper href={href} target='_blank'>
     <i className={`fa fa-${icon}`} />
     <span>{title}</span>
   </ListItemWrapper>
-));
+);
 
 const ListItemWrapper = styled.a`
   display: flex;
