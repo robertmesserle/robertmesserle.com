@@ -92,8 +92,6 @@ function CodePen() {
 
 export default CodePen;
 
-interface PenProps {}
-
 function Pen({
   children,
   href,
