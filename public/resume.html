@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png"
+          href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png"/>
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <link rel="shortcut icon" type="image/x-icon"
+          href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"/>
+    <link rel="mask-icon" type=""
+          href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+          color="#111"/>
+    <meta name="robots" content="noindex">
+    <title>CodePen - Responsive Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Fjalla+One'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700'>
+    <style>
+        body {
+            font: 300 16px 'Source Sans Pro';
+            color: #666;
+        }
+
+        .resume {
+            padding-bottom: 20px;
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        section a {
+            color: #1d8fc9;
+            display: inline-block;
+            text-decoration: none;
+            border-bottom: 1px solid #1d8fc9;
+        }
+
+        header a {
+            font-family: Lato, sans-serif;
+            color: white;
+            text-decoration: none;
+            background: #1d8fc9;
+            padding: 0 10px;
+            border-radius: 11px;
+            font-weight: 400;
+            font-size: 11px;
+            text-transform: uppercase;
+            line-height: 22px;
+            display: inline-block;
+            letter-spacing: 0.035em;
+        }
+
+        .row {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-direction: row;
+        }
+
+        @media screen and (max-width: 750px) {
+            .row {
+                display: block;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                flex-direction: unset;
+            }
+        }
+
+        header {
+            position: relative;
+            padding: 20px;
+            box-shadow: 0 20px 20px -20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header .left {
+            -webkit-box-flex: 1;
+            flex-grow: 1;
+        }
+
+        header .right {
+            min-width: 355px;
+            float: none;
+        }
+
+        @media screen and (max-width: 750px) {
+            header .right {
+                float: right;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            header .right {
+                float: none;
+            }
+        }
+
+        header h1 {
+            font-size: 53px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #61b1d9;
+            font-family: 'Fjalla One', sans-serif;
+        }
+
+        header h1 span {
+            color: #1772a1;
+        }
+
+        @media screen and (max-width: 400px) {
+            header h1 span {
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            header h1 {
+                text-align: center;
+            }
+        }
+
+        header h2 {
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 400px) {
+            header h2 {
+                margin-top: 1em;
+                text-align: center;
+            }
+        }
+
+        header .links {
+            overflow: hidden;
+        }
+
+        header .links dt {
+            padding: 0 10px 0 0;
+            clear: left;
+            text-align: right;
+            width: 100px;
+        }
+
+        header .links dt, header .links dd {
+            font-family: Lato, sans-serif;
+            text-transform: uppercase;
+            font-size: 12px;
+            line-height: 22px;
+            float: left;
+            margin: 7.5px 0 0;
+        }
+
+        @media screen and (max-width: 400px) {
+            header .links dt, header .links dd {
+                text-align: left;
+                display: block;
+                float: none;
+            }
+
+            header .links dt:first-child, header .links dd:first-child {
+                margin-top: 22px;
+            }
+
+            header .links dt:not(dt), header .links dd:not(dt) {
+                margin-top: 0;
+            }
+        }
+
+        header .links dt a, header .links dd a {
+            display: block;
+        }
+
+        section {
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6em;
+        }
+
+        section:nth-of-type(1) {
+            margin: 20px 0 0;
+        }
+
+        section .left {
+            -webkit-box-flex: 1;
+            flex: 1;
+        }
+
+        section .right {
+            -webkit-box-flex: 2;
+            flex: 2;
+            padding: 0 0 0 20px;
+        }
+
+        @media screen and (max-width: 750px) {
+            section .right {
+                padding: 40px 0 0 0;
+            }
+        }
+
+        section h2 {
+            font-family: 'Fjalla One', sans-serif;
+            font-size: 33px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #1d8fc9;
+            margin: 0 0 20px;
+            border-bottom: 2px solid #1d8fc9;
+            box-shadow: 0 8px 8px -8px rgba(0, 0, 0, 0.3);
+        }
+
+        section h3, section dt {
+            font-family: Lato, sans-serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: #1d8fc9;
+            font-size: 14px;
+            letter-spacing: 0.035em;
+        }
+
+        section h3 {
+            line-height: 22px;
+            margin: 0 0 5px;
+        }
+
+        section dt {
+            line-height: 2em;
+        }
+
+        section dd {
+            padding: 0 0 20px;
+            overflow: hidden;
+        }
+
+        section dd:last-of-type {
+            padding-bottom: 0;
+        }
+
+        section dd span {
+            font-family: Lato, sans-serif;
+            float: left;
+            margin: 0 5px 5px 0;
+            text-decoration: none;
+            background: #f7f7f7;
+            padding: 0 7px;
+            border-radius: 11px;
+            font-weight: 400;
+            font-size: 11px;
+            text-transform: uppercase;
+            line-height: 22px;
+            display: inline-block;
+            letter-spacing: 0.035em;
+            box-shadow: inset 0 0 0 1px #d9d9d9;
+        }
+
+        section li.row {
+            padding: 15px 20px;
+        }
+
+        section li.row:nth-of-type(odd) {
+            background: #f2f2f2;
+        }
+
+        section li.row .left {
+            min-width: 170px;
+            -webkit-box-flex: 0;
+            flex: 0;
+        }
+
+        @media screen and (max-width: 750px) {
+            section li.row .left {
+                border-bottom: 1px solid #ccc;
+                overflow: hidden;
+            }
+
+            section li.row .left * {
+                float: left;
+            }
+
+            section li.row .left *:nth-child(2) {
+                clear: left;
+            }
+
+            section li.row .left *:last-child {
+                float: right;
+            }
+        }
+
+        section li.row .right {
+            -webkit-box-flex: 1;
+            flex: 1;
+            padding-left: 30px;
+            clear: left;
+        }
+
+        @media screen and (max-width: 750px) {
+            section li.row .right {
+                padding-left: 10px;
+                padding-top: 10px;
+            }
+        }
+
+        section li.row li {
+            position: relative;
+            line-height: 1.4em;
+            padding: 0 0 5px 0.8em;
+        }
+
+        section li.row li:before {
+            content: '\f061';
+            font-family: FontAwesome, sans-serif;
+            -webkit-transform: translate(-0.5em, -0.1em) scale(0.9) rotate(-45deg);
+            transform: translate(-0.5em, -0.1em) scale(0.9) rotate(-45deg);
+            color: #ccc;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body translate="no">
+<div class="resume">
+    <header class="row">
+        <div class="left">
+            <h1>Robert<span>Messerle</span></h1>
+            <h2><a href='mailto:robertmesserle@gmail.com'>robertmesserle@gmail.com</a></h2>
+        </div>
+        <div class="right">
+            <dl class="links">
+                <dt>Portfolio</dt>
+                <dd><a href="http://www.robertmesserle.com">http://www.robertmesserle.com</a></dd>
+                <dt>Github</dt>
+                <dd><a href="https://github.com/robertmesserle">https://github.com/robertmesserle</a></dd>
+                <dt>CodePen</dt>
+                <dd><a href="https://codepen.io/robertmesserle">https://codepen.io/robertmesserle</a></dd>
+            </dl>
+        </div>
+    </header>
+    <section class="row">
+        <div class="left">
+            <h2>Profile</h2>
+            <p>I am an experienced frontend web developer primarily focused on HTML, CSS, and JavaScript. While I have
+                experience with fullstack development, my value comes more from my ability to design and implement
+                complex user interfaces.</p>
+        </div>
+        <div class="right">
+            <h2>Skills</h2>
+            <dl>
+                <dt>Frontend</dt>
+                <dd><span>React</span><span>Redux</span><span>Relay</span><span>Flow</span><span>TypeScript</span><span>JavaScript</span><span>WebPack</span><span>Babel</span><span>Objective-C</span><span>Swift</span><span>HTML 5</span><span>Canvas</span><span>SVG</span><span>Sass/SCSS</span><span>Photoshop</span><span>Sketch</span><span>Adobe XD</span>
+                </dd>
+                <dt>Backend</dt>
+                <dd>
+                    <span>Node.js</span><span>MongoDB</span><span>MySQL</span><span>PHP</span><span>Ruby/Rails</span><span>Heroku</span><span>Apache</span><span>Nginx</span>
+                </dd>
+            </dl>
+        </div>
+    </section>
+    <section>
+        <h2>Experience</h2>
+        <ul>
+            <li class="row">
+                <div class="left">
+                    <h3>Reddit</h3>
+                    <p>Staff Software Engineer</p>
+                    <p>Oct 2019 - Present</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Used React + Redux to build UI features for ads platform</li>
+                        <li>Helped develop design system and components to improve code quality and design consistency
+                            across ads platform
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>Facebook</h3>
+                    <p>Senior Software Engineer</p>
+                    <p>May 2018 - Sep 2019</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Developed reusable components to be used across the recruiting org</li>
+                        <li>Ran workshops to teach other developers about React Hooks</li>
+                        <li>Ran workshops to help push unit testing in the recruiting org</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>Sportradar</h3>
+                    <p>Software Engineer</p>
+                    <p>Aug 2017 - May 2018</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Coded 3D animations from live game snapshots using Three.js and React</li>
+                        <li>Implemented various data visualizations</li>
+                        <li>Coordinated with backend developer to render JS animations to image and video files for
+                            sharing
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>Caretech Group</h3>
+                    <p>Software Engineer</p>
+                    <p>Feb 2017 - May 2018</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Designed and implemented product rewrite as sole frontend developer using React</li>
+                        <li>Wrote custom graphing components for displaying financial data</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>Close.io</h3>
+                    <p>Software Engineer</p>
+                    <p>Aug 2016 - Feb 2017</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Revised the build system to add more modern tools such as WebPack, React, and Babel/ES6</li>
+                        <li>Created online voicemail recording tool using WebRTC</li>
+                        <li>Implemented new UI features using Backbone and React</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>Google</h3>
+                    <p>Software Engineer</p>
+                    <p>Oct 2014 - Aug 2016</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Built components for the Angular Material project in both AngularJS and Angular 2+</li>
+                        <li>Managed the <a href="https://material.angularjs.org">Angular Material</a> website
+                            and build processes
+                        </li>
+                        <li>Automated the release process used for Angular Material (including Github versioning, npm
+                            and bower publishing, site updates)
+                        </li>
+                        <li>Helped design animations API for Angular 2</li>
+                        <li>Helped launch the <a href="http://angular.io">angular.io</a> website for Angular 2
+                        </li>
+                        <li>Spoke at AngularConnect conference in London about animations in Angular 2</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>LinkedIn</h3>
+                    <p>Sr. Web Developer</p>
+                    <p>Nov 2013 - Oct 2014</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Built early prototypes for new features utilizing DustJS, Play Framework, jQuery, and
+                            SASS.
+                        </li>
+                        <li>Ported frontend code from JSP to DustJS on the Play Framework.</li>
+                        <li>Mentored developers on best practices with JavaScript, DustJS, HTML, and SASS/CSS.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>Cignium</h3>
+                    <p>Team Lead UI Developer</p>
+                    <p>May 2012 – Nov 2013</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Built an MV* framework for use by multiple teams leveraging two-way data-binding with the
+                            help of tools like CoffeeScript, KnockoutJS, Stylus, and Durandal.
+                        </li>
+                        <li>Built a large-scale single-page data-management application from the ground up.</li>
+                        <li>Led the frontend team as well as the architectural structure of our application.</li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>R/GA</h3>
+                    <p>Sr. Open Standards Dev.</p>
+                    <p>Jan 2011 – Jan 2012</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Independently developed a highly configurable custom line graph that is used on multiple
+                            Nike sites.
+                        </li>
+                        <li>Seamlessly coordinated Google Maps API and custom line graph to display an animated replay
+                            of a user’s run from their GPS snapshots.
+                        </li>
+                        <li>Developed a jQuery templating plugin in my free time that is used on multiple Nike sites.
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>Yahoo!</h3>
+                    <p>Research Engineer</p>
+                    <p>June 2010 – Jan 2011</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Developed a Flash game called Shambling Hordes utilizing Flex 4, ActionScript 3, and PHP.
+                        </li>
+                        <li>Built a complex math-based visualization to demonstrate link dispersion in Flash for Yahoo!
+                            For Good.
+                        </li>
+                        <li>Utilized PHP, ActionScript, JavaScript, YUI, HTML, CSS, and any other appropriate
+                            technologies for the tasks at hand.
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="row">
+                <div class="left">
+                    <h3>R/GA</h3>
+                    <p>Presentation Code Dev.</p>
+                    <p>June 2008 – Jan 2010</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>Developed features for Nike+ using AJAX, object-oriented JavaScript, HTML, CSS, and
+                            Freemarker.
+                        </li>
+                        <li>Rewrote the Clearspace templating logic to rely on existing Nike config files in order to
+                            minimize redundant data.
+                        </li>
+                        <li>Worked on the Nike+ iPhone site, heavily leveraging CSS3 and WebKit-specific coding
+                            methods.
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section>
+        <h2>Education</h2>
+        <p>Pennsylvania College of Technology, Williamsport, PA — B.S., Information Technology: Web Development,
+            2007</p>
+    </section>
+</div>
+
+
+</body>
+
+</html>
